@@ -1,3 +1,12 @@
+// Constant that definites all the sets of character types available
+const charTypes = {
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numbers: "0123456789",
+  special: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+}
+
+
 // Prompts the user for a password length (between 8 and 128 characters)
 // Returns the length that the user specified
 function promptForLength() {
@@ -14,6 +23,24 @@ function promptForLength() {
   // If this point is reached, the length should be valid, so return it
   return length;
 }
+
+
+// Function that allows user to choose what character types they want to use
+function promptSpecificCharType(charType) {
+  var userInput = '';
+
+  //Idea: change to a confirmation (true/false) rather than a prompt
+  while (userInput != 'y' && userInput != 'n') {
+    userInput = prompt("Would you like the password to contain " + charType + " characters? (y/n)");
+  }
+  if (userInput = 'y') {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 
 // Write password to the #password input
 function writePassword() {
