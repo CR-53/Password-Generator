@@ -41,6 +41,22 @@ function promptSpecificCharType(charType) {
   }
 }
 
+// Generates a password string and returns a string containing the generated password
+function generatePassword(length, charPool) {
+
+  // Variable to store the password in
+  var result = '';
+
+  // For each character up to the specified password length
+  for ( var i = 0; i < charPool.length; i++ ) {
+    // Append a randomly generated character to the password from the charPool 
+    result += charPool.charAt(Math.floor(Math.random() * charPool.length));
+  }
+  
+  // We've created a string of the required length, so return the result
+  return result;
+}
+
 
 // Write password to the #password input
 function writePassword() {
