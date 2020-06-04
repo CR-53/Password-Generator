@@ -1,4 +1,4 @@
-// Constant that definites all the sets of character types available
+// Constant with all the different character type sets
 const charTypes = {
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -7,25 +7,23 @@ const charTypes = {
 }
 
 
-// Prompts the user for a password length (between 8 and 128 characters)
-// Returns the length that the user specified
+// Function that prompts the user for a password length (between 8 and 128 characters) then returns the length
 function promptForLength() {
   
-  // Variable to store the user inputted length in
+  // Variable to store length in
   var length = 0;
 
-  // While the user input for length is not within our accepted criteria (between 8 and 128 characters)
+  // While loop that asks the user to enter a length between 8-128 
   while (!(length >=8 && length <= 128)) {
     // Prompts the user for a length, converts the string to an interger
     length = parseInt(prompt("Please enter the length you would like for your password, between 8 and 128 characters"));
   }
 
-  // If this point is reached, the length should be valid, so return it
+  // If this point is reached, then the length is valid, so return it
   return length;
 }
 
 
-// Function that allows user to choose what character types they want to use
 function promptSpecificCharType(charType) {
   var userInput = '';
 
@@ -41,31 +39,62 @@ function promptSpecificCharType(charType) {
   }
 }
 
-// Generates a password string and returns a string containing the generated password
+
+// Prompts the user for a set of character types then returns a string of chosen character types
+function promptForChars() {
+
+  // Variable to store the users pool of character types to generate a password from 
+  var charPool = '';
+
+  while(charPool === '') {
+    if (promptSpecificCharType('uppercase')) {
+      charPool += charTypes.uppcercase;
+    }
+    if(promptSpecificCharType('lowercase')) {
+      charPool += charTypes.lowercase;
+    }
+    if(promptSpecificCharType('number')) {
+      charPool += charTypes.number;
+    }
+    if(promptSpecificCharType('special')) {
+      charPool += charTypes.special;
+    }
+    if(charPool === '') {
+      alert("Please choose at least one character type out of; 'uppercase', 'lowercase', 'number' or 'special'.");
+    } 
+  }
+  return charPool;
+ 
+}
+
+// Generates a password string then returns a string containing the generated password
+// Parameter length: the number of characters in the generated password
+// Parameter charPool: a string containing a list of acceptable characters to build the password from
 function generatePassword(length, charPool) {
 
-  // Variable to store the password in
+  // Variable to store the password result in
   var result = '';
 
-  // For each character up to the specified password length
+  // For each character up to the previously specified password length
   for ( var i = 0; i < charPool.length; i++ ) {
-    // Append a randomly generated character to the password from the charPool 
+    // Adds a randomly generated character to the password from the user selected character type pool (charPool)
     result += charPool.charAt(Math.floor(Math.random() * charPool.length));
   }
   
-  // We've created a string of the required length, so return the result
+  // Returns the password result
   return result;
 }
-
+// --------------------------------------------------------------------------
 
 // Write password to the #password input
 function writePassword() {
 
   // Prompt the user for input
   var length = promptForLength();
+  var charPool = promptForChars();
 
   // Generate the password
-  var password = generatePassword(length);
+  var password = generatePassword(length, charPool);
 
   // Display the password on screen
   var passwordText = document.querySelector("#password");
