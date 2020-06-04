@@ -1,8 +1,8 @@
 // Constant with all the different character type sets
 const charTypes = {
-  lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  numbers: "0123456789",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  number: "0123456789",
   special: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 }
 
@@ -31,7 +31,7 @@ function promptSpecificCharType(charType) {
   while (userInput != 'y' && userInput != 'n') {
     userInput = prompt("Would you like the password to contain " + charType + " characters? (y/n)");
   }
-  if (userInput = 'y') {
+  if (userInput === 'y') {
     return true;
   }
   else {
@@ -45,10 +45,10 @@ function promptForChars() {
 
   // Variable to store the users pool of character types to generate a password from 
   var charPool = '';
-
+  
   while(charPool === '') {
     if (promptSpecificCharType('uppercase')) {
-      charPool += charTypes.uppcercase;
+      charPool += charTypes.uppercase;
     }
     if(promptSpecificCharType('lowercase')) {
       charPool += charTypes.lowercase;
@@ -63,9 +63,11 @@ function promptForChars() {
       alert("Please choose at least one character type out of; 'uppercase', 'lowercase', 'number' or 'special'.");
     } 
   }
+
   return charPool;
  
 }
+
 
 // Generates a password string then returns a string containing the generated password
 // Parameter length: the number of characters in the generated password
@@ -76,7 +78,7 @@ function generatePassword(length, charPool) {
   var result = '';
 
   // For each character up to the previously specified password length
-  for ( var i = 0; i < charPool.length; i++ ) {
+  for ( var i = 0; i < length; i++ ) {
     // Adds a randomly generated character to the password from the user selected character type pool (charPool)
     result += charPool.charAt(Math.floor(Math.random() * charPool.length));
   }
@@ -84,7 +86,7 @@ function generatePassword(length, charPool) {
   // Returns the password result
   return result;
 }
-// --------------------------------------------------------------------------
+
 
 // Write password to the #password input
 function writePassword() {
@@ -100,7 +102,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-// --------------------------------------------------------------------------
+
 
 // Get a reference to the Generate Button
 var generateBtn = document.querySelector("#generate");
