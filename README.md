@@ -5,7 +5,7 @@
 
 https://cr-53.github.io/Password-Generator/Develop/index.html
 
-![test](Assets\password-generator.png)
+![test](Assets/password-generator.png)
 
 ## Task Description
 
