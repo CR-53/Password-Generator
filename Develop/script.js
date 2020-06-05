@@ -46,6 +46,7 @@ function promptForChars() {
   // Variable to store the users pool of character types to generate a password from 
   var charPool = '';
   
+  // Prompts the user to select a certain character type, if true it adds the character type to the character pool
   while(charPool === '') {
     if (promptSpecificCharType('uppercase')) {
       charPool += charTypes.uppercase;
@@ -59,6 +60,7 @@ function promptForChars() {
     if(promptSpecificCharType('special')) {
       charPool += charTypes.special;
     }
+    // If no character types were chosen, prompts the user to select one and restarts the while loop
     if(charPool === '') {
       alert("Please choose at least one character type out of; 'uppercase', 'lowercase', 'number' or 'special'.");
     } 
