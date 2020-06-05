@@ -5,4 +5,4 @@
 
 https://cr-53.github.io/Password-Generator/Develop/index.html
 
-![](assets/password-generator.png)
+![](Assets\password-generator.png)
