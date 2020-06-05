@@ -13,7 +13,7 @@ This week's task was to code a password generator using JavaScript that catered 
 
 ## Solution
 
-I approached this task by first breaking it down into small sections and pseudo-coding it, so I could get a better understanding of what needed to be done for each section. I then started to put together the code one function at a time, using "console.log()" to check if it they were working as intended. As I am new to JavaScript and programming in general, a lot of my time was spent googling for possible solutions and proper syntax to use for my code. 
+I approached this task by first breaking it down into small sections and pseudo-coding it, so I could get a better understanding of what needed to be done for each section. I then started to put together the code one function at a time, using "console.log()" to check if each function was working as intended. As I am new to JavaScript and programming in general, a lot of my time was spent googling for possible solutions and proper syntax to use for my code. 
 
 ## Debugging
 
