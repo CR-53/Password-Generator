@@ -21,4 +21,4 @@ After having written what seemed to be a finished solution, I soon realised that
 
 ## License & copyright
 
-© Chris Roschi, University of Adelaide Coding Bootcamp
+© Chris R, University of Adelaide Coding Bootcamp
